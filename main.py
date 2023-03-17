@@ -104,6 +104,8 @@ def changeDB():
 # INNER JOIN - возвращает только те строки, которые имеют совпадения в обеих таблицах.
 def menu_inner_join():
     def inner_join():
+        label_info.config(text="")
+
         # Установим соединение с базой данных
         with connect('database.db') as db:
             # Создание курсора
