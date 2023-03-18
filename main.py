@@ -103,7 +103,15 @@ def changeDB():
 
 # INNER JOIN - возвращает только те строки, которые имеют совпадения в обеих таблицах.
 def menu_inner_join():
+
+    #если пользователь откроет новый виджет inner join, то прошлый закроется:
+    window.grab_release()
+    for widget in window.winfo_children():
+        if isinstance(widget, Toplevel):
+            widget.destroy()
+
     def inner_join():
+
         label_info.config(text="")
 
         # Установим соединение с базой данных
@@ -150,6 +158,7 @@ def menu_inner_join():
 
 
     newWindow = Toplevel(window)
+    newWindow.title('Вхождение в обе таблицы')
     newWindow.minsize(300, 200)
 
     #Комбобокс с выбором вхождений из заголовков первой таблицы
